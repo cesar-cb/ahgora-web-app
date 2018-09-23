@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => (
-  <div className="App">
+import Punch from '@/components/Punch/Punch';
 
-  </div>
-);
+const App = () => <Punch />;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
