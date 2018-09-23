@@ -9,8 +9,10 @@
     "autoprefixer": "^7.2.1",
     "babel-preset-react-app": "^3.1.0",
     "parcel-bundler": "latest",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": "^16.5.2",
+    "react-dom": "^16.2.0",
+    "styled-components": "^3.4.9",
+    "unstated": "^2.1.1"
   },
   "postcss": {
     "modules": false,
@@ -27,6 +29,14 @@
     }
   },
   "devDependencies": {
-    "cross-env": "^5.1.1"
+    "babel-eslint": "^9.0.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "cross-env": "^5.1.1",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1"
   }
 }
