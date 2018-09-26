@@ -11,7 +11,7 @@ export const Backdrop = styled.div`
   width: 100vw;
 `;
 
-export const BackdropCentered = Backdrop.extend`
+export const BackdropCentered = styled(Backdrop)`
   align-items: center;
   display: flex;
   justify-content: center;
