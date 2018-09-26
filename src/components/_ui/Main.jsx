@@ -10,7 +10,7 @@ const Main = styled.main`
   font-family: 'SF Mono', monospace;
   height: 100vh;
   justify-content: center;
-  padding: 0 2em;
+  padding: 0 1.5em;
 `;
 
 export default Main;
