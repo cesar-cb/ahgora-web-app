@@ -10,7 +10,7 @@ const Input = styled.input`
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.87);
   display: block;
-  font-family: "'Montserrat', Helvetica, Arial, sans - serif";
+  font-family: 'SF Mono', monospace;
   font-size: 16px;
   height: 50px;
   margin-top: 10px;
