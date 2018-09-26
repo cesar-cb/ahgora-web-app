@@ -6,8 +6,8 @@ const Container = styled.div`
   justify-content: ${({ center }) => (center ? 'center' : 'start')};
   flex-direction: column;
   max-width: 800px;
-  padding: 0 2em;
   margin: 0 auto;
+  width: 100%;
 `;
 
 export default Container;
