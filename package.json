@@ -3,12 +3,14 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development parcel index.html ",
-    "build": "cross-env NODE_ENV=production parcel build index.html --no-minify --public-url /"
+    "build": "cross-env NODE_ENV=production parcel build index.html --no-minify --public-url /",
+    "lint": "eslint --ext .jsx,.js ./src/**/ --quiet --cache --color"
   },
   "dependencies": {
     "autoprefixer": "^7.2.1",
     "babel-preset-react-app": "^3.1.0",
     "parcel-bundler": "latest",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.2.0",
     "styled-components": "^3.4.9",
