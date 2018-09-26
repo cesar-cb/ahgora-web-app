@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import UserContainer from '@/components/User/UserContainer'
-import withContext from '@/components/HOCs/withContext'
+import UserContainer from '@/components/User/UserContainer';
+import withContext from '@/components/HOCs/withContext';
 
-import User from '@/components/User/User'
-import Punch from '@/components/Punch/Punch'
+import User from '@/components/User/User';
+import Punch from '@/components/Punch/Punch';
 
-import Container from '@/components/_ui/Container'
+import Container from '@/components/_ui/Container';
+import Main from '@/components/_ui/Main';
 
 class App extends Component {
   componentWillMount() {
@@ -17,12 +18,14 @@ class App extends Component {
   render() {
     const { information } = this.props.UserContainer.value.state;
 
-    return(
-      <Container>
-        {information && <Punch />}
-        {!information && <User />}
-      </Container>
-    )
+    return (
+      <Main>
+        <Container>
+          {information && <Punch />}
+          {!information && <User />}
+        </Container>
+      </Main>
+    );
   }
 }
 
