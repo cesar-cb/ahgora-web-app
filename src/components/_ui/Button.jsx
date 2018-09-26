@@ -20,6 +20,12 @@ const Button = styled.button`
   transition-duration: 0.3s;
   transition-property: min-width, color, background-color;
   transition-timing-function: ease-in-out;
+  @media (hover: hover) {
+    &:hover {
+      background-color: #aedcf0;
+      color: #686868;
+    }
+  }
 `;
 
 export default Button;
