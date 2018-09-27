@@ -7,23 +7,20 @@ class PunchContainer extends Container {
     error: null
   };
 
-  _fetch = async ({ account, password, id }) => {
+  _fetch = async data => {
     try {
       this.setState({ loading: true });
 
       const conf = {
         method: 'POST',
-        mode: 'no-cors',
-        body: {
-          account,
-          password,
-          identity: id,
-          key: '',
-          origin: 'pw2'
-        }
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(data)
       };
 
-      const response = await fetch('https://www.ahgora.com.br/batidaonline/verifyIdentification', conf);
+      const response = await fetch('https://ahgora-api.herokuapp.com/api/punch', conf);
+
       const json = await response.json();
 
       return json;
@@ -35,7 +32,7 @@ class PunchContainer extends Container {
   };
 
   do = async ({ account, password, id }) => {
-    const response = await this._fetch({ account, password, id });
+    const response = await this._fetch({ account, password, identity: id });
 
     this.setState({
       response
