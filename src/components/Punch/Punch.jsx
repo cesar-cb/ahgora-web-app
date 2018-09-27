@@ -31,7 +31,7 @@ const Punch = () => (
             Bater Ponto!
           </Button>
           <Spacer margin={[20, 0, 0, 0]} />
-          {punch.state.response && <Response>{punch.state.response}</Response>}
+          {punch.state.response && <Response response={punch.state.response} />}
         </Container>
       );
     }}

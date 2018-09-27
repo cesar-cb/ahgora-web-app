@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import Code from '@/components/_ui/Code';
 
-const Response = ({ children }) => (
+const Response = ({ response }) => (
   <Code>
-    <pre>{JSON.stringify(children)}</pre>
+    <pre>{JSON.stringify(response)}</pre>
   </Code>
 );
 
 Response.propTypes = {
-  children: PropTypes.node.isRequired
+  response: PropTypes.shape({})
 };
 
 export default Response;
