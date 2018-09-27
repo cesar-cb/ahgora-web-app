@@ -1,5 +1,27 @@
 import styled from 'styled-components';
 
+const sizes = props => {
+  switch (props.size) {
+    case 'small':
+      return '12px';
+    case 'big':
+      return '20px';
+    default:
+      return '16px';
+  }
+};
+
+const padding = props => {
+  switch (props.size) {
+    case 'small':
+      return '10px';
+    case 'big':
+      return '30px 20px';
+    default:
+      return '15px 20px';
+  }
+};
+
 const Button = styled.button`
   background-color: transparent;
   border: 3px solid #aedcf0;
@@ -9,13 +31,13 @@ const Button = styled.button`
   cursor: pointer;
   display: inline-block;
   font-family: inherit;
-  font-size: ${({ big }) => (big ? '20px' : '16px')};
+  font-size: ${props => sizes(props)};
   font-weight: 100;
   letter-spacing: 0.2em;
   margin: 0;
-  min-width: 100%;
+  width: ${({ full }) => (full ? '100%' : 'auto')};
   outline: none;
-  padding: ${({ big }) => (big ? '30px 20px' : '15px 20px')};
+  padding: ${props => padding(props)};
   text-transform: uppercase;
   transition-duration: 0.3s;
   transition-property: min-width, color, background-color;
