@@ -22,7 +22,7 @@ class PunchContainer extends Container {
         }
       };
 
-      const response = await fetch('http://www.ahgora.com.br/batidaonline/verifyIdentification', conf);
+      const response = await fetch('https://www.ahgora.com.br/batidaonline/verifyIdentification', conf);
       const json = await response.json();
 
       return json;
