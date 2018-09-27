@@ -9,7 +9,22 @@ import UserContainer from '@/components/User/UserContainer';
 
 class User extends Component {
   static propTypes = {
-    UserContainer: PropTypes.func.isRequired
+    UserContainer: PropTypes.shape({
+      value: PropTypes.shape({
+        state: PropTypes.shape({
+          information: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            account: PropTypes.string.isRequired,
+            password: PropTypes.string.isRequired,
+            id: PropTypes.string.isRequired
+          }),
+          error: PropTypes.bool.isRequired
+        }),
+        initInformation: PropTypes.func.isRequired,
+        setInformation: PropTypes.func.isRequired,
+        resetInformation: PropTypes.func.isRequired
+      })
+    })
   };
 
   state = {};
