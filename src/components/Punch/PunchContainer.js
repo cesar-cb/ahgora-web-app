@@ -13,6 +13,7 @@ class PunchContainer extends Container {
 
       const conf = {
         method: 'POST',
+        mode: 'no-cors',
         body: {
           account,
           password,
