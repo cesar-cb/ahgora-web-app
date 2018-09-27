@@ -43,6 +43,17 @@ class UserContainer extends Container {
       this.setState({ error: error });
     }
   };
+
+  resetInformation = () => {
+    localStorage.removeItem('name');
+    localStorage.removeItem('account');
+    localStorage.removeItem('password');
+    localStorage.removeItem('id');
+
+    this.setState({
+      information: null
+    });
+  };
 }
 
 export default UserContainer;
