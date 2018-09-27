@@ -6,7 +6,7 @@ const Code = styled.code`
   display: inline-block;
   box-sizing: border-box;
   font-size: 16px;
-  overflow-x: scroll;
+  overflow-x: auto;
   padding: 20px;
   text-align: center;
   width: 100%;
