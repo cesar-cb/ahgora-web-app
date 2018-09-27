@@ -27,6 +27,7 @@
       {
         "ignoreComments": true
       }
-    ]
+    ],
+    "react/require-default-props": false
   }
 }
