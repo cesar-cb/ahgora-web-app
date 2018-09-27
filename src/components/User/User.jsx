@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import TextBox from '@/components/_ui/TextBox';
 import Button from '@/components/_ui/Button';
 
@@ -6,6 +8,10 @@ import withContext from '@/components/HOCs/withContext';
 import UserContainer from '@/components/User/UserContainer';
 
 class User extends Component {
+  static propTypes = {
+    UserContainer: PropTypes.func.isRequired
+  };
+
   state = {};
 
   onInput = e =>
@@ -16,9 +22,11 @@ class User extends Component {
   onSubmit = e => {
     e.preventDefault();
 
+    const { UserContainer } = this.props;
+    const { setInformation } = UserContainer.value;
     const { name, account, password, id } = this.state;
 
-    this.props.UserContainer.value.setInformation({
+    setInformation({
       name,
       account,
       password,

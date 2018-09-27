@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import UserContainer from '@/components/User/UserContainer';
 import withContext from '@/components/HOCs/withContext';
 
@@ -9,14 +11,20 @@ import Container from '@/components/_ui/Container';
 import Main from '@/components/_ui/Main';
 
 class App extends Component {
+  static propTypes = {
+    UserContainer: PropTypes.func.isRequired
+  };
+
   componentWillMount() {
-    const { initInformation } = this.props.UserContainer.value;
+    const { UserContainer } = this.props;
+    const { initInformation } = UserContainer.value;
 
     initInformation();
   }
 
   render() {
-    const { information } = this.props.UserContainer.value.state;
+    const { UserContainer } = this.props;
+    const { information } = UserContainer.value.state;
 
     return (
       <Main>
