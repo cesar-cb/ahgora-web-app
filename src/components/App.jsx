@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
+import loadable from 'react-loadable';
 import PropTypes from 'prop-types';
 
 import UserContainer from '@/components/User/UserContainer';
 import withContext from '@/components/HOCs/withContext';
 
-import User from '@/components/User/User';
-import Punch from '@/components/Punch/Punch';
+//import User from '@/components/User/User';
+//import Punch from '@/components/Punch/Punch';
 
 import Container from '@/components/_ui/Container';
 import Main from '@/components/_ui/Main';
+
+const LoadingComponent = () => <h3>please wait...</h3>;
+
+const AsyncUserComponent = loadable({
+  loader: () => import('@/components/User/User'),
+  loading: LoadingComponent
+});
+
+const AsyncPunchComponent = loadable({
+  loader: () => import('@/components/Punch/Punch'),
+  loading: LoadingComponent
+});
 
 class App extends Component {
   static propTypes = {
@@ -44,8 +57,8 @@ class App extends Component {
     return (
       <Main>
         <Container>
-          {information && <Punch />}
-          {!information && <User />}
+          {information && <AsyncPunchComponent />}
+          {!information && <AsyncUserComponent />}
         </Container>
       </Main>
     );
