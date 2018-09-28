@@ -2,36 +2,32 @@
   "name": "ahgora-web-app",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development parcel index.html ",
-    "build": "cross-env NODE_ENV=production parcel build index.html --no-minify --public-url /",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --progress --colors --config ./webpack.config.js --mode development",
     "lint": "eslint --ext .jsx,.js ./src/**/ --quiet --cache --color"
   },
   "dependencies": {
     "autoprefixer": "^7.2.1",
     "babel-preset-react-app": "^3.1.0",
-    "parcel-bundler": "latest",
+    "parcel-bundler": "1.10.1",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.2.0",
+    "react-loadable": "^5.5.0",
     "styled-components": "^3.4.9",
     "unstated": "^2.1.1"
   },
-  "postcss": {
-    "modules": false,
-    "plugins": {
-      "autoprefixer": {
-        "browsers": [
-          ">1%",
-          "last 4 versions",
-          "Firefox ESR",
-          "not ie < 9"
-        ],
-        "flexbox": "no-2009"
-      }
-    }
-  },
   "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^9.0.0",
+    "babel-loader": "^8.0.4",
     "babel-plugin-module-resolver": "^3.1.1",
     "cross-env": "^5.1.1",
     "eslint": "^5.6.0",
@@ -39,6 +35,12 @@
     "eslint-import-resolver-babel-module": "^4.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.11.1",
+    "html-webpack-plugin": "^3.2.0",
+    "react-hot-loader": "^4.3.11",
+    "webpack": "^4.20.2",
+    "webpack-async-chunk-names-plugin": "^0.1.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.9"
   }
 }
