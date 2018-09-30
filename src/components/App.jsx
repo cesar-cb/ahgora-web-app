@@ -5,22 +5,18 @@ import PropTypes from 'prop-types';
 import UserContainer from '@/components/User/UserContainer';
 import withContext from '@/components/HOCs/withContext';
 
-//import User from '@/components/User/User';
-//import Punch from '@/components/Punch/Punch';
-
 import Container from '@/components/_ui/Container';
 import Main from '@/components/_ui/Main';
+import Loader from '@/components/_ui/Loader';
 
-const LoadingComponent = () => <h3>please wait...</h3>;
-
-const AsyncUserComponent = loadable({
+const User = loadable({
   loader: () => import('@/components/User/User'),
-  loading: LoadingComponent
+  loading: Loader
 });
 
-const AsyncPunchComponent = loadable({
+const Punch = loadable({
   loader: () => import('@/components/Punch/Punch'),
-  loading: LoadingComponent
+  loading: Loader
 });
 
 class App extends Component {
@@ -57,8 +53,8 @@ class App extends Component {
     return (
       <Main>
         <Container>
-          {information && <AsyncPunchComponent />}
-          {!information && <AsyncUserComponent />}
+          {information && <Punch />}
+          {!information && <User />}
         </Container>
       </Main>
     );
