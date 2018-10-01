@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "webpack  --config ./webpack/webpack.dev.js --mode development",
     "build": "webpack --config ./webpack/webpack.prod.js --mode production",
-    "start": "webpack-dev-server --progress --colors --config ./webpack/webpack.dev.js --mode development --hot --open",
+    "start": "webpack-dev-server --progress --colors --config ./webpack/webpack.dev.js --mode development --hot --open --host 0.0.0.0",
     "lint": "eslint --ext .jsx,.js ./src/**/ --quiet --cache --color"
   },
   "dependencies": {

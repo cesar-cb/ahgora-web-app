@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import loadable from 'react-loadable';
 import PropTypes from 'prop-types';
 
-import { userContainerType } from '@/types'
-
+import { userContainerType } from '@/types';
 
 import UserContainer from '@/components/User/UserContainer';
 import withContext from '@/components/HOCs/withContext';
