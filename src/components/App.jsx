@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import loadable from 'react-loadable';
 import PropTypes from 'prop-types';
 
+import { userContainerType } from '@/types'
+
+
 import UserContainer from '@/components/User/UserContainer';
 import withContext from '@/components/HOCs/withContext';
 
@@ -21,22 +24,7 @@ const Punch = loadable({
 
 class App extends Component {
   static propTypes = {
-    UserContainer: PropTypes.shape({
-      value: PropTypes.shape({
-        state: PropTypes.shape({
-          information: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            account: PropTypes.string.isRequired,
-            password: PropTypes.string.isRequired,
-            id: PropTypes.string.isRequired
-          }),
-          error: PropTypes.bool.isRequired
-        }),
-        initInformation: PropTypes.func.isRequired,
-        setInformation: PropTypes.func.isRequired,
-        resetInformation: PropTypes.func.isRequired
-      })
-    })
+    UserContainer: userContainerType
   };
 
   componentWillMount() {

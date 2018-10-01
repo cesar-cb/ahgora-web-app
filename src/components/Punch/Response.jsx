@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import { punchResponse } from '@/types'
 
 import Code from '@/components/_ui/Code';
 
@@ -10,7 +11,7 @@ const Response = ({ response }) => (
 );
 
 Response.propTypes = {
-  response: PropTypes.shape({})
+  response: punchResponse,
 };
 
 export default Response;

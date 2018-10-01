@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
+import { userContainerType } from '@/types'
 
 import TextBox from '@/components/_ui/TextBox';
 import Button from '@/components/_ui/Button';
@@ -9,29 +10,14 @@ import UserContainer from '@/components/User/UserContainer';
 
 class User extends Component {
   static propTypes = {
-    UserContainer: PropTypes.shape({
-      value: PropTypes.shape({
-        state: PropTypes.shape({
-          information: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            account: PropTypes.string.isRequired,
-            password: PropTypes.string.isRequired,
-            id: PropTypes.string.isRequired
-          }),
-          error: PropTypes.bool.isRequired
-        }),
-        initInformation: PropTypes.func.isRequired,
-        setInformation: PropTypes.func.isRequired,
-        resetInformation: PropTypes.func.isRequired
-      })
-    })
+    UserContainer: userContainerType,
   };
 
   state = {};
 
   onInput = e =>
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
 
   onSubmit = e => {
@@ -45,7 +31,7 @@ class User extends Component {
       name,
       account,
       password,
-      id
+      id,
     });
   };
 
