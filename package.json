@@ -5,6 +5,8 @@
     "dev": "webpack  --config ./webpack/webpack.dev.js --mode development",
     "build": "webpack --config ./webpack/webpack.prod.js --mode production",
     "start": "webpack-dev-server --progress --colors --config ./webpack/webpack.dev.js --mode development --hot --open",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
     "lint": "eslint --ext .jsx,.js ./src/**/ --quiet --cache --color"
   },
   "dependencies": {
@@ -18,17 +20,22 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.0",
+    "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.1.2",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
-    "babel-loader": "^8.0.4",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-module-resolver": "^3.1.1",
     "clean-webpack-plugin": "^0.1.19",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-import-resolver-babel-module": "^4.0.0",
@@ -36,11 +43,23 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
+    "jest-localstorage-mock": "^2.2.0",
+    "regenerator-runtime": "^0.12.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.20.2",
     "webpack-async-chunk-names-plugin": "^0.1.1",
     "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js",
+      "jest-localstorage-mock"
+    ]
   }
 }

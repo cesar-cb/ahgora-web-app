@@ -21,13 +21,13 @@ const Punch = () => (
           {punch.state.loading && <Loader />}
 
           <ResetInfo />
-          
+
           <h1 style={{ textAlign: 'center', width: '100%' }}>
             Olá
             {' '}
             {user.state.information.name}
           </h1>
-          <Button size="big" full onClick={() => punch.do({ account, password, id })}>
+          <Button id="punch" size="big" full onClick={() => punch.do({ account, password, id })}>
             Bater Ponto!
           </Button>
           <Spacer margin={[20, 0, 0, 0]} />
