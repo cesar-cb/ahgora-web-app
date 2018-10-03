@@ -48,6 +48,7 @@
     "jest-localstorage-mock": "^2.2.0",
     "jsdom": "^12.1.0",
     "regenerator-runtime": "^0.12.1",
+    "tickedoff": "^1.0.2",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.20.2",
     "webpack-async-chunk-names-plugin": "^0.1.1",
