@@ -9,8 +9,6 @@ class PunchContainer extends Container {
 
   _fetch = async data => {
     try {
-      this.setState({ loading: true });
-
       const conf = {
         method: 'POST',
         headers: {
@@ -32,6 +30,8 @@ class PunchContainer extends Container {
   };
 
   do = async ({ account, password, id }) => {
+    this.setState({ loading: true });
+
     const response = await this._fetch({ account, password, identity: id });
 
     this.setState({
