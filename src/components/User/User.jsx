@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { userContainerType } from '@/types'
+import { userContainerType } from '@/types';
 
 import TextBox from '@/components/_ui/TextBox';
 import Button from '@/components/_ui/Button';
@@ -10,14 +10,14 @@ import UserContainer from '@/components/User/UserContainer';
 
 class User extends Component {
   static propTypes = {
-    UserContainer: userContainerType,
+    UserContainer: userContainerType
   };
 
   state = {};
 
   onInput = e =>
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
 
   onSubmit = e => {
@@ -31,7 +31,7 @@ class User extends Component {
       name,
       account,
       password,
-      id,
+      id
     });
   };
 

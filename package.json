@@ -2,9 +2,9 @@
   "name": "ahgora-web-app",
   "license": "MIT",
   "scripts": {
+    "start": "webpack-dev-server --progress --colors --config ./webpack/webpack.dev.js --mode development --hot --open --host 0.0.0.0",
     "dev": "webpack  --config ./webpack/webpack.dev.js --mode development",
     "build": "webpack --config ./webpack/webpack.prod.js --mode production",
-    "start": "webpack-dev-server --progress --colors --config ./webpack/webpack.dev.js --mode development --hot --open",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "lint": "eslint --ext .jsx,.js ./src/**/ --quiet --cache --color"
