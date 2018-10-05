@@ -37,11 +37,11 @@ class User extends Component {
 
   render() {
     return (
-      <form onSubmit={e => this.onSubmit(e)} style={{ width: '100%' }}>
-        <TextBox label="Nome" name="name" onInput={e => this.onInput(e)} />
-        <TextBox label="Conta" name="account" onInput={e => this.onInput(e)} />
-        <TextBox label="Senha" name="password" onInput={e => this.onInput(e)} />
-        <TextBox label="Identificação" name="id" onInput={e => this.onInput(e)} />
+      <form onSubmit={e => this.onSubmit(e)} style={{ width: '100%' }} id="form">
+        <TextBox id="name" label="Nome" name="name" onInput={e => this.onInput(e)} />
+        <TextBox id="account" label="Conta" name="account" onInput={e => this.onInput(e)} />
+        <TextBox id="password" label="Senha" name="password" onInput={e => this.onInput(e)} />
+        <TextBox id="id" label="Identificação" name="id" onInput={e => this.onInput(e)} />
         <Button full>Salvar Informações</Button>
       </form>
     );
