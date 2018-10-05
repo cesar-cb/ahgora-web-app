@@ -27,7 +27,7 @@ beforeEach(() => {
 });
 
 describe('User', () => {
-  test('should send correct information', () => {
+  test('should save correct information', () => {
     tree.find('input#name').simulate('input', { target: { value: state.name, name: 'name' } })
     tree.find('input#account').simulate('input', { target: { value: state.account, name: 'account' } })
     tree.find('input#password').simulate('input', { target: { value: state.password, name: 'password' } })
@@ -44,4 +44,14 @@ describe('User', () => {
 
     expect(spy.calledOnceWith(state)).toBeTruthy();
   });
+
+  test('should set localstorage', async () => {
+    user.setInformation(state);
+
+    expect(localStorage.setItem).toBeCalledWith('name', state.name);
+    expect(localStorage.setItem).toBeCalledWith('account', state.account);
+    expect(localStorage.setItem).toBeCalledWith('password', state.password);
+    expect(localStorage.setItem).toBeCalledWith('id', state.id);
+  });
+
 });

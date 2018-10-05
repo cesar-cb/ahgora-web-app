@@ -66,7 +66,7 @@
     "setupFiles": [
       "<rootDir>/__tests__/setup/enzymeSetup.js",
       "<rootDir>/__tests__/setup/jsdomSetup.js",
-      "jest-localstorage-mock"
+      "<rootDir>/__tests__/setup/localStorageSetup.js"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/__tests__/setup/"
