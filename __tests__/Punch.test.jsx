@@ -1,21 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Provider } from 'unstated';
-import tck from 'tickedoff';
-import { stub } from 'sinon'
+import { stub } from 'sinon';
 
 import Punch from '@/components/Punch/Punch';
 import PunchContainer from '@/components/Punch/PunchContainer';
 import UserContainer from '@/components/User/UserContainer';
 
 import Response from '@/components/Punch/Response';
-
-const defer = (fn, done) => {
-  return tck(() => {
-    fn();
-    done();
-  });
-};
 
 let punch;
 let user;
@@ -43,11 +35,11 @@ beforeEach(async () => {
   user = new UserContainer();
 
   await user.setState({
-    information: fullInformation,
+    information: fullInformation
   });
 
   await punch.setState({
-    response,
+    response
   });
 
   tree = mount(
@@ -61,15 +53,15 @@ describe('Punch', () => {
   test('should has correct initial state', () => {
     const punch = new PunchContainer();
 
-    expect(punch.state.response).toEqual(null);
-    expect(punch.state.loading).toEqual(false);
-    expect(punch.state.error).toEqual(null);
+    expect(punch.state.response).toBeNull();
+    expect(punch.state.loading).toBeFalsy();
+    expect(punch.state.error).toBeNull();
   });
 
-  test('should pass correct response props', done => {
+  test('should pass correct response props', () => {
     const responseProps = tree.find(Response).prop('response');
 
-    defer(() => expect(responseProps).toEqual(response), done);
+    expect(responseProps).toEqual(response);
   });
 
   test('should call do with correct params', () => {
