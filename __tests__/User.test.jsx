@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Provider } from 'unstated'
-import { stub } from 'sinon'
+import { Provider } from 'unstated';
+import { stub } from 'sinon';
 
 import User from '@/components/User/User';
 import UserContainer from '@/components/User/UserContainer';
@@ -13,7 +13,7 @@ const state = {
   name: 'test user',
   account: '123',
   password: '@b$c',
-  id: 'sd4e9wd512',
+  id: 'sd4e9wd512'
 };
 
 beforeEach(() => {
@@ -28,10 +28,12 @@ beforeEach(() => {
 
 describe('User', () => {
   test('should save correct information', () => {
-    tree.find('input#name').simulate('input', { target: { value: state.name, name: 'name' } })
-    tree.find('input#account').simulate('input', { target: { value: state.account, name: 'account' } })
-    tree.find('input#password').simulate('input', { target: { value: state.password, name: 'password' } })
-    tree.find('input#id').simulate('input', { target: { value: state.id, name: 'id' } })
+    tree.find('input#name').simulate('input', { target: { value: state.name, name: 'name' } });
+    tree.find('input#account').simulate('input', { target: { value: state.account, name: 'account' } });
+    tree.find('input#password').simulate('input', {
+      target: { value: state.password, name: 'password' }
+    });
+    tree.find('input#id').simulate('input', { target: { value: state.id, name: 'id' } });
 
     expect(tree.find('User').instance().state).toEqual(state);
   });
@@ -39,13 +41,17 @@ describe('User', () => {
   test('should call setInformation with correct params', () => {
     const spy = stub(user, 'setInformation');
 
-    tree.find('User').instance().setState(state);
+    tree
+      .find('User')
+      .instance()
+      .setState(state);
+
     tree.find('#form').simulate('submit');
 
     expect(spy.calledOnceWith(state)).toBeTruthy();
   });
 
-  test('should set localstorage', async () => {
+  test('should call localstorage.setItem', () => {
     user.setInformation(state);
 
     expect(localStorage.setItem).toBeCalledWith('name', state.name);
@@ -54,4 +60,35 @@ describe('User', () => {
     expect(localStorage.setItem).toBeCalledWith('id', state.id);
   });
 
+  test('should call localstorage.getItem', () => {
+    user.initInformation();
+
+    expect(localStorage.getItem).toBeCalledWith('name');
+    expect(localStorage.getItem).toBeCalledWith('account');
+    expect(localStorage.getItem).toBeCalledWith('password');
+    expect(localStorage.getItem).toBeCalledWith('id');
+  });
+
+  test('should call localstorage.removeItem', () => {
+    user.resetInformation();
+
+    expect(localStorage.removeItem).toBeCalledWith('name');
+    expect(localStorage.removeItem).toBeCalledWith('account');
+    expect(localStorage.removeItem).toBeCalledWith('password');
+    expect(localStorage.removeItem).toBeCalledWith('id');
+  });
+
+  test('should save information on state', async () => {
+    await user.setInformation(state);
+
+    expect(user.state.information).toEqual(state);
+  });
+
+  test('should clear state on resetInformation', async () => {
+    await user.setInformation(state);
+
+    await user.resetInformation();
+
+    expect(user.state.information).toBeNull();
+  });
 });
