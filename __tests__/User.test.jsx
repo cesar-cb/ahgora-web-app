@@ -17,6 +17,8 @@ const state = {
 };
 
 beforeEach(() => {
+  localStorage.clear();
+
   user = new UserContainer();
 
   tree = mount(
@@ -27,68 +29,85 @@ beforeEach(() => {
 });
 
 describe('User', () => {
-  test('should save correct information', () => {
-    tree.find('input#name').simulate('input', { target: { value: state.name, name: 'name' } });
-    tree.find('input#account').simulate('input', { target: { value: state.account, name: 'account' } });
-    tree.find('input#password').simulate('input', {
-      target: { value: state.password, name: 'password' }
+  describe('Component', () => {
+    test('should save correct information', () => {
+      tree.find('input#name').simulate('input', { target: { value: state.name, name: 'name' } });
+      tree.find('input#account').simulate('input', { target: { value: state.account, name: 'account' } });
+      tree.find('input#password').simulate('input', {
+        target: { value: state.password, name: 'password' }
+      });
+      tree.find('input#id').simulate('input', { target: { value: state.id, name: 'id' } });
+
+      expect(tree.find('User').instance().state).toEqual(state);
     });
-    tree.find('input#id').simulate('input', { target: { value: state.id, name: 'id' } });
 
-    expect(tree.find('User').instance().state).toEqual(state);
+    test('should call setInformation with correct params', () => {
+      const spy = stub(user, 'setInformation');
+
+      tree
+        .find('User')
+        .instance()
+        .setState(state);
+
+      tree.find('#form').simulate('submit');
+
+      expect(spy.calledOnceWith(state)).toBeTruthy();
+    });
   });
 
-  test('should call setInformation with correct params', () => {
-    const spy = stub(user, 'setInformation');
+  describe('Container', () => {
+    test('should has correct initial state', () => {
+      expect(user.state.information).toBeNull();
+      expect(user.state.error).toBeFalsy();
+    });
 
-    tree
-      .find('User')
-      .instance()
-      .setState(state);
+    test('should call localstorage.setItem', () => {
+      user.setInformation(state);
 
-    tree.find('#form').simulate('submit');
+      expect(localStorage.setItem).toBeCalledWith('name', state.name);
+      expect(localStorage.setItem).toBeCalledWith('account', state.account);
+      expect(localStorage.setItem).toBeCalledWith('password', state.password);
+      expect(localStorage.setItem).toBeCalledWith('id', state.id);
+    });
 
-    expect(spy.calledOnceWith(state)).toBeTruthy();
-  });
+    test('should call localstorage.getItem', () => {
+      user.initInformation();
 
-  test('should call localstorage.setItem', () => {
-    user.setInformation(state);
+      expect(localStorage.getItem).toBeCalledWith('name');
+      expect(localStorage.getItem).toBeCalledWith('account');
+      expect(localStorage.getItem).toBeCalledWith('password');
+      expect(localStorage.getItem).toBeCalledWith('id');
+    });
 
-    expect(localStorage.setItem).toBeCalledWith('name', state.name);
-    expect(localStorage.setItem).toBeCalledWith('account', state.account);
-    expect(localStorage.setItem).toBeCalledWith('password', state.password);
-    expect(localStorage.setItem).toBeCalledWith('id', state.id);
-  });
+    test('should call localstorage.removeItem', () => {
+      user.resetInformation();
 
-  test('should call localstorage.getItem', () => {
-    user.initInformation();
+      expect(localStorage.removeItem).toBeCalledWith('name');
+      expect(localStorage.removeItem).toBeCalledWith('account');
+      expect(localStorage.removeItem).toBeCalledWith('password');
+      expect(localStorage.removeItem).toBeCalledWith('id');
+    });
 
-    expect(localStorage.getItem).toBeCalledWith('name');
-    expect(localStorage.getItem).toBeCalledWith('account');
-    expect(localStorage.getItem).toBeCalledWith('password');
-    expect(localStorage.getItem).toBeCalledWith('id');
-  });
+    test('should save information on state', async () => {
+      await user.setInformation(state);
 
-  test('should call localstorage.removeItem', () => {
-    user.resetInformation();
+      expect(user.state.information).toEqual(state);
+    });
 
-    expect(localStorage.removeItem).toBeCalledWith('name');
-    expect(localStorage.removeItem).toBeCalledWith('account');
-    expect(localStorage.removeItem).toBeCalledWith('password');
-    expect(localStorage.removeItem).toBeCalledWith('id');
-  });
+    test('should clear state on resetInformation', async () => {
+      await user.setInformation(state);
 
-  test('should save information on state', async () => {
-    await user.setInformation(state);
+      await user.resetInformation();
 
-    expect(user.state.information).toEqual(state);
-  });
+      expect(user.state.information).toBeNull();
+    });
 
-  test('should clear state on resetInformation', async () => {
-    await user.setInformation(state);
+    test('should call initInformation and set state', async () => {
+      await user.setInformation(state);
 
-    await user.resetInformation();
+      await user.initInformation();
 
-    expect(user.state.information).toBeNull();
+      expect(user.state.information).toEqual(state);
+    });
   });
 });
