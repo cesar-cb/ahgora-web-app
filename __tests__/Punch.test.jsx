@@ -50,25 +50,29 @@ beforeEach(async () => {
 });
 
 describe('Punch', () => {
-  test('should has correct initial state', () => {
-    const punch = new PunchContainer();
+  describe('Component', () => {
+    test('should pass correct response props', () => {
+      const responseProps = tree.find(Response).prop('response');
 
-    expect(punch.state.response).toBeNull();
-    expect(punch.state.loading).toBeFalsy();
-    expect(punch.state.error).toBeNull();
+      expect(responseProps).toEqual(response);
+    });
+
+    test('should call do with correct params', () => {
+      const spy = stub(punch, 'do');
+
+      tree.find('button#punch').simulate('click');
+
+      expect(spy.calledOnceWith(accountInformation)).toBeTruthy();
+    });
   });
 
-  test('should pass correct response props', () => {
-    const responseProps = tree.find(Response).prop('response');
+  describe('Container', () => {
+    test('should has correct initial state', () => {
+      const punch = new PunchContainer();
 
-    expect(responseProps).toEqual(response);
-  });
-
-  test('should call do with correct params', () => {
-    const spy = stub(punch, 'do');
-
-    tree.find('button#punch').simulate('click');
-
-    expect(spy.calledOnceWith(accountInformation)).toBeTruthy();
+      expect(punch.state.response).toBeNull();
+      expect(punch.state.loading).toBeFalsy();
+      expect(punch.state.error).toBeNull();
+    });
   });
 });
