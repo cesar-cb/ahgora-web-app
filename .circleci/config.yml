@@ -16,7 +16,7 @@ jobs:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
 
-      - run: yarn install && yarn global add codecov
+      - run: yarn install
 
       - save_cache:
           paths:
@@ -31,7 +31,7 @@ jobs:
 
       - run:
           name: Notify Code Climate of current test
-          command: cd src && ./cc-test-reporter before-build
+          command: ./cc-test-reporter before-build
 
       - run:
           name: Run tests and lint
