@@ -1,6 +1,8 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: 69669b702d76f67cfeb5be07fd10a7dda77e04d0ce612b3122ab4695ecc8e58a
     docker:
       - image: circleci/node:8.11.4
 
@@ -14,13 +16,29 @@ jobs:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
 
-      - run: yarn install
+      - run: yarn install && yarn global add codecov
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn run lint && yarn run test
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
 
+      - run:
+          name: Notify Code Climate of current test
+          command: cd src && ./cc-test-reporter before-build
+
+      - run:
+          name: Run tests and lint
+          command: yarn run lint && yarn run test && ./cc-test-reporter format-coverage -t lcov
+
+      - run:
+          name: Send coverage to Code Climate
+          command: ./cc-test-reporter upload-coverage
+          when: always
 
