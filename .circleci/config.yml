@@ -35,15 +35,11 @@ jobs:
 
       - run:
           name: Run tests and lint
-          command: yarn run lint && yarn run test && ./cc-test-reporter format-coverage -t lcov
+          command: yarn run lint && yarn run test
 
       - run:
           name: Run tests coverage
           command: yarn run test:coverage && ./cc-test-reporter format-coverage -t lcov
-
-      - run:
-          name: Format coverage
-          command: ./cc-test-reporter format-coverage -t lcov
 
       - run:
           name: Send coverage to Code Climate
