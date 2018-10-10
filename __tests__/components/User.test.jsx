@@ -30,7 +30,7 @@ beforeEach(() => {
 
 describe('User', () => {
   describe('Component', () => {
-    xtest('should save correct information', () => {
+    test('should save correct information', () => {
       tree.find('input#name').simulate('input', { target: { value: state.name, name: 'name' } });
       tree.find('input#account').simulate('input', { target: { value: state.account, name: 'account' } });
       tree.find('input#password').simulate('input', {
