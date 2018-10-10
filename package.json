@@ -6,6 +6,7 @@
     "dev": "webpack  --config ./webpack/webpack.dev.js --mode development",
     "build": "webpack --config ./webpack/webpack.prod.js --mode production",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:watch": "jest --watchAll",
     "lint:src": "eslint --ext .jsx,.js ./src/**/ --quiet --cache --color",
     "lint:tests": "eslint --ext .jsx,.js ./__tests__/**/ --quiet --cache --color",
