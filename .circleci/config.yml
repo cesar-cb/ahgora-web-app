@@ -42,6 +42,10 @@ jobs:
           command: yarn run test:coverage && ./cc-test-reporter format-coverage -t lcov
 
       - run:
+          name: Format coverage
+          command: ./cc-test-reporter format-coverage -t lcov
+
+      - run:
           name: Send coverage to Code Climate
           command: ./cc-test-reporter upload-coverage
           when: always
