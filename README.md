@@ -1,4 +1,15 @@
-[![CircleCI](https://circleci.com/gh/cesar-cb/ahgora-web-app.svg?style=svg)](https://circleci.com/gh/cesar-cb/ahgora-web-app)
+<p>
+  <a href="https://circleci.com/gh/cesar-cb/ahgora-web-app">
+    <img src="https://circleci.com/gh/cesar-cb/ahgora-web-app.svg?style=svg" />
+  </a>
+  <a href="https://codeclimate.com/github/cesar-cb/ahgora-web-app/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/338901c4e2d9bb314b66/maintainability" />
+  </a>
+
+  <a href="https://codeclimate.com/github/cesar-cb/ahgora-web-app/test_coverage">
+    <img src="https://api.codeclimate.com/v1/badges/338901c4e2d9bb314b66/test_coverage" />
+  </a>
+</p>
 
 # Ahgora Web App
 
