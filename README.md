@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/cesar-cb/ahgora-web-app.svg?style=svg)](https://circleci.com/gh/cesar-cb/ahgora-web-app)
+
 # Ahgora Web App
 
 ## How to use it
