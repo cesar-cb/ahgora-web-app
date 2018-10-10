@@ -4,7 +4,7 @@
 
 ### **Step 1**:
 
-Fill your information:
+Fill out your information:
 
 **Nome**
 
