@@ -30,7 +30,12 @@ const response = {
   response: 'generic response'
 };
 
+const punchApiUrl = 'https://ahgora-api.herokuapp.com/api';
+const punchEndPoint = '/punch';
+
 beforeEach(async () => {
+  fetch.resetMocks();
+
   punch = new PunchContainer();
   user = new UserContainer();
 
@@ -73,6 +78,22 @@ describe('Punch', () => {
       expect(punch.state.response).toBeNull();
       expect(punch.state.loading).toBeFalsy();
       expect(punch.state.error).toBeNull();
+    });
+
+    test('should call api and set state ', async () => {
+      const punch = new PunchContainer();
+
+      const mock = {
+        error: false,
+        message: 'success',
+        response: { success: true }
+      };
+
+      fetch.mockResponseOnce(JSON.stringify(mock));
+
+      await punch.do(accountInformation);
+
+      expect(punch.state.response).toEqual(mock);
     });
   });
 });
