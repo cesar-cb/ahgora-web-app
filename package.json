@@ -7,7 +7,9 @@
     "build": "webpack --config ./webpack/webpack.prod.js --mode production",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "lint": "eslint --ext .jsx,.js ./src/**/ --quiet --cache --color"
+    "lint:src": "eslint --ext .jsx,.js ./src/**/ --quiet --cache --color",
+    "lint:tests": "eslint --ext .jsx,.js ./__tests__/**/ --quiet --cache --color",
+    "lint": "concurrently \"yarn lint:src\" \"yarn lint:tests\""
   },
   "dependencies": {
     "autoprefixer": "^7.2.1",
@@ -33,13 +35,15 @@
     "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-module-resolver": "^3.1.1",
     "clean-webpack-plugin": "^0.1.19",
+    "concurrently": "^4.0.1",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "enzyme-to-json": "^3.3.4",
-    "eslint": "^5.6.0",
+    "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-import-resolver-babel-module": "^5.0.0-beta.1",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.24.1",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "html-webpack-plugin": "^3.2.0",
