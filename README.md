@@ -1,5 +1,27 @@
 # Ahgora Web App
 
+## How to use it
+
+### **Step 1**:
+
+Fill your information:
+
+**Nome**
+
+**Conta**
+
+**Senha**
+
+**Identificação** (from localstorage)
+
+![User Information](./screenshots/information.png)
+
+### **Step 2**:
+
+Here you can **punch** the button or **reset** your information and get back to user information screen.
+
+![Punch](./screenshots/punch.png)
+
 ## Setup
 
 ### Make sure you have Yarn installed
