@@ -83,7 +83,8 @@
       "<rootDir>/__tests__/setup/jestSetup.js"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>/__tests__/setup/"
+      "<rootDir>/__tests__/setup/",
+      "<rootDir>/__tests__/cypress/"
     ],
     "moduleNameMapper": {
       ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
