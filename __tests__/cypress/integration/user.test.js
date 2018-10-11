@@ -1,6 +1,0 @@
-beforeEach(() => {
-})
-
-describe('User', () => {
-
-});

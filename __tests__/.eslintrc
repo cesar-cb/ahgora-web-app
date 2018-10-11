@@ -1,5 +1,5 @@
 {
-  "plugins": ["jest"],
+  "plugins": ["jest", "cypress"],
   "extends": ["plugin:jest/recommended"],
   "rules": {
     "jest/no-disabled-tests": "error",
@@ -9,6 +9,7 @@
     "jest/valid-expect": "error"
   },
   "env": {
-    "jest/globals": true
+    "jest/globals": true,
+    "cypress/globals": true
   }
 }
