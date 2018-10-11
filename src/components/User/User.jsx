@@ -42,7 +42,7 @@ class User extends Component {
         <TextBox id="account" label="Conta" name="account" onInput={e => this.onInput(e)} />
         <TextBox id="password" label="Senha" name="password" onInput={e => this.onInput(e)} />
         <TextBox id="id" label="Identificação" name="id" onInput={e => this.onInput(e)} />
-        <Button full>Salvar Informações</Button>
+        <Button id="save" full>Salvar Informações</Button>
       </form>
     );
   }
