@@ -25,6 +25,10 @@ jobs:
           paths:
             - ~/.cache/yarn
 
+      -run:
+        name: Install Linux Dependencies
+        command: sudo apt update && sudo apt install libgtk2.0-0
+
       - run:
           name: Setup Code Climate test-reporter
           command: |
