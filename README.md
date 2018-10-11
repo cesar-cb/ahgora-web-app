@@ -13,6 +13,8 @@
 
 # Ahgora Web App
 
+Live Version: [https://ahgora.netlify.com](https://ahgora.netlify.com)
+
 ## How to use it
 
 ### **Step 1**:
@@ -47,10 +49,19 @@ yarn install
 
 ### Start Server
 ```
-yarn start
+yarn run start
 ```
 
 ### Run Tests
 ```
 yarn run test
+```
+
+### Run E2E Tests
+```
+yarn run cypress:run
+```
+or
+```
+yarn run cypress:open
 ```
