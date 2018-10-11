@@ -30,7 +30,7 @@ describe('App', () => {
 
   it('should returns a response after punch', () => {
     cy.get('#punch').click();
-
-    cy.get("#response").should('exist')
+    cy.wait(6000);
+    cy.get("#response").should('exist');
   });
 });
