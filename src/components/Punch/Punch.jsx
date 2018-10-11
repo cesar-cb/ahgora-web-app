@@ -23,7 +23,7 @@ const Punch = () => (
 
           <ResetInfo />
 
-          <h1 style={{ textAlign: 'center', width: '100%' }}>
+          <h1 id="hello" style={{ textAlign: 'center', width: '100%' }}>
             Olá
             {' '}
             {name}
@@ -32,7 +32,7 @@ const Punch = () => (
             Bater Ponto!
           </Button>
           <Spacer margin={[20, 0, 0, 0]} />
-          {response && <Response id="response" response={response} />}
+          {response && <Response response={response} />}
         </Container>
       );
     }}
