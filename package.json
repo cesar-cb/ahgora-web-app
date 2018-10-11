@@ -7,14 +7,19 @@
     "dev": "webpack  --config ./webpack/webpack.dev.js --mode development",
     "build": "webpack --config ./webpack/webpack.prod.js --mode production",
     "test": "jest",
+    "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "ci:e2e": "start-server-and-test start:dist http://localhost:8080 cypress:run",
-    "test:watch": "jest --watchAll",
     "lint:src": "eslint --ext .jsx,.js ./src/**/ --quiet --cache --color",
     "lint:tests": "eslint --ext .jsx,.js ./__tests__/**/ --quiet --cache --color",
     "lint": "concurrently \"yarn lint:src\" \"yarn lint:tests\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint && yarn test && yarn cypress:run"
+    }
   },
   "dependencies": {
     "autoprefixer": "^7.2.1",
@@ -55,6 +60,7 @@
     "eslint-plugin-react": "^7.11.1",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.11.1",
+    "husky": "^1.1.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-fetch-mock": "^1.6.6",
