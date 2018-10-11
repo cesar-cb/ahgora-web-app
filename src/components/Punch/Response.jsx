@@ -6,7 +6,7 @@ import Code from '@/components/_ui/Code';
 
 const Response = ({ response }) => (
   <Code error={response.error}>
-    <pre>{JSON.stringify(response)}</pre>
+    <pre id="response">{JSON.stringify(response)}</pre>
   </Code>
 );
 
