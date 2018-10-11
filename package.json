@@ -18,7 +18,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "if git-branch-is master; then yarn lint && yarn test && yarn cypress:run; fi"
+      "pre-push": "if git-branch-is master; then yarn lint && yarn test && yarn cypress:run; fi"
     }
   },
   "dependencies": {
