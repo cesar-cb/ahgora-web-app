@@ -30,7 +30,12 @@ describe('App', () => {
 
   it('should returns a response after punch', () => {
     cy.get('#punch').click();
-    cy.wait(6000);
-    cy.get("#response").should('exist');
+    cy.wait(2000);
+    cy.get('#response', { timeout: 10000 }).should('exist');
+  });
+
+  it('should reset user information and get back to user information screen', () => {
+    cy.get('#reset').click();
+    cy.get('#save').should('exist');
   });
 });

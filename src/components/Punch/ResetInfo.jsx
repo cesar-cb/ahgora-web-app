@@ -8,7 +8,7 @@ const Punch = () => (
   <Subscribe to={[UserContainer]}>
     {user => (
       <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
-        <Button size="small" onClick={() => user.resetInformation()}>
+        <Button id="reset" size="small" onClick={() => user.resetInformation()}>
           resetar
         </Button>
       </div>
