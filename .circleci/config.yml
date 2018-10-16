@@ -35,7 +35,7 @@ jobs:
 
       - run:
           name: Run tests and lint
-          command: yarn run lint && yarn run test && yarn run ci:e2e
+          command: yarn run lint && yarn run test && yarn run cypress:run
 
       - run:
           name: Run tests coverage
