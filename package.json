@@ -14,7 +14,8 @@
     "ci:e2e": "start-server-and-test start:dist http://localhost:8080 cypress:run",
     "lint:src": "eslint --ext .jsx,.js ./src/**/ --quiet --cache --color",
     "lint:tests": "eslint --ext .jsx,.js ./__tests__/**/ --quiet --cache --color",
-    "lint": "concurrently \"yarn lint:src\" \"yarn lint:tests\""
+    "lint": "concurrently \"yarn lint:src\" \"yarn lint:tests\"",
+    "lh": "lighthouse-ci"
   },
   "husky": {
     "hooks": {
@@ -42,6 +43,7 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-module-resolver": "^3.1.1",
+    "chrome-launcher": "^0.10.5",
     "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^4.0.1",
     "cypress": "^3.1.0",
@@ -64,6 +66,7 @@
     "jest": "^23.6.0",
     "jest-fetch-mock": "^1.6.6",
     "jsdom": "^12.1.0",
+    "lighthouse": "^3.2.1",
     "regenerator-runtime": "^0.12.1",
     "sinon": "^6.3.5",
     "start-server-and-test": "^1.7.4",
