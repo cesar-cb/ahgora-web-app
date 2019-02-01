@@ -9,7 +9,6 @@ const Code = styled.code`
   font-size: 16px;
   overflow-x: auto;
   padding: 20px;
-  text-align: center;
   width: 100%;
 `;
 
