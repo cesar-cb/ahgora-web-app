@@ -17,7 +17,7 @@ class PunchContainer extends Container {
         body: JSON.stringify(data)
       };
 
-      const response = await fetch('https://ahgora-api.herokuapp.com/api/punch', conf);
+      const response = await fetch('http://ahgora-ahgora.1d35.starter-us-east-1.openshiftapps.com/api/punch', conf);
 
       const json = await response.json();
 
