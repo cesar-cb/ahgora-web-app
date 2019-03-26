@@ -9,7 +9,7 @@ class PunchContainer extends Container {
 
   _fetch = async data => {
     try {
-      const conf = {
+      const config = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json; charset=utf-8'
@@ -17,7 +17,7 @@ class PunchContainer extends Container {
         body: JSON.stringify(data)
       };
 
-      const response = await fetch('https://ahgora-ahgora.1d35.starter-us-east-1.openshiftapps.com/api/punch', conf);
+      const response = await fetch(`${process.env.API_URL}/api/punch`, config);
 
       const json = await response.json();
 

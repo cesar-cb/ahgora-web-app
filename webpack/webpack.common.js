@@ -1,3 +1,4 @@
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -28,6 +29,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin('dist', {
       root: path.resolve(__dirname, '../')
-    })
+    }),
+    new Dotenv(),
   ]
 };
