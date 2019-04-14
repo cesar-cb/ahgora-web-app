@@ -1,5 +1,10 @@
 {
   "name": "ahgora-web-app",
+  "author": {
+    "name": "Cesar Boaventura",
+    "email": "cesar.boaventura61@gmail.com",
+    "url": "http://cesarboaventura.dev"
+  },
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --progress --colors --config ./webpack/webpack.dev.js --mode development --hot --open",
@@ -68,6 +73,7 @@
     "sinon": "^6.3.5",
     "start-server-and-test": "^1.7.4",
     "uglifyjs-webpack-plugin": "^2.0.1",
+    "webapp-webpack-plugin": "^2.6.1",
     "webpack": "^4.20.2",
     "webpack-async-chunk-names-plugin": "^0.1.1",
     "webpack-cli": "^3.1.1",
