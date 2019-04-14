@@ -30,9 +30,6 @@ const response = {
   response: 'generic response'
 };
 
-const punchApiUrl = 'https://ahgora-api.herokuapp.com/api';
-const punchEndPoint = '/punch';
-
 beforeEach(async () => {
   fetch.resetMocks();
 

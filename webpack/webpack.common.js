@@ -1,3 +1,4 @@
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebappWebpackPlugin = require('webapp-webpack-plugin')
@@ -41,5 +42,6 @@ module.exports = {
         theme_color: '#242F3F',
       }
     }),
+    new Dotenv(),
   ],
 };
