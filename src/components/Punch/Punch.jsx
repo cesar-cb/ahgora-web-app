@@ -10,12 +10,21 @@ import Button from '@/components/_ui/Button';
 import Loader from '@/components/_ui/Loader';
 import Container from '@/components/_ui/Container';
 import Spacer from '@/components/_ui/Spacer';
+import Accordion from '@/components/_ui/Accordion';
 
 const Punch = () => (
   <Subscribe to={[PunchContainer, UserContainer]}>
     {(punch, user) => {
-      const { account, password, id, name } = user.state.information;
+      const {
+        account,
+        password,
+        id,
+        name,
+      } = user.state.information;
+
       const { loading, response } = punch.state;
+
+      const lastResponse = JSON.parse(localStorage.getItem('last_response'));
 
       return (
         <Container>
@@ -32,7 +41,21 @@ const Punch = () => (
             Bater Ponto!
           </Button>
           <Spacer margin={[20, 0, 0, 0]} />
-          {response && <Response response={response} />}
+          {response && (
+            <Response
+              id="response"
+              response={response}
+            />
+            )}
+          <Spacer margin={[40, 0, 0, 0]} />
+          {lastResponse && (
+            <Accordion label="Última Batida">
+              <Response
+                id="lastResponse"
+                response={lastResponse}
+              />
+            </Accordion>
+          )}
         </Container>
       );
     }}

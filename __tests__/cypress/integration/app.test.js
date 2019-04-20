@@ -32,6 +32,7 @@ describe('App', () => {
     cy.get('#punch').click();
     cy.wait(2000);
     cy.get('#response', { timeout: 10000 }).should('exist');
+    cy.get('#lastResponse', { timeout: 10000 }).should('exist');
   });
 
   it('should reset user information and get back to user information screen', () => {
