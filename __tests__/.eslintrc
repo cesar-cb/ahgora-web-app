@@ -6,7 +6,15 @@
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "error",
-    "jest/valid-expect": "error"
+    "jest/valid-expect": "error",
+    "max-len": [
+      1,
+      120,
+      2,
+      {
+        "ignoreComments": true
+      }
+    ]
   },
   "env": {
     "jest/globals": true,

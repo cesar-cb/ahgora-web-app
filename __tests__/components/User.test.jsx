@@ -31,12 +31,18 @@ beforeEach(() => {
 describe('User', () => {
   describe('Component', () => {
     test('should save correct information', () => {
-      tree.find('input#name').simulate('input', { target: { value: state.name, name: 'name' } });
-      tree.find('input#account').simulate('input', { target: { value: state.account, name: 'account' } });
+      tree.find('input#name').simulate('input', {
+        target: { value: state.name, name: 'name' }
+      });
+      tree.find('input#account').simulate('input', {
+        target: { value: state.account, name: 'account' }
+      });
       tree.find('input#password').simulate('input', {
         target: { value: state.password, name: 'password' }
       });
-      tree.find('input#id').simulate('input', { target: { value: state.id, name: 'id' } });
+      tree.find('input#id').simulate('input', {
+        target: { value: state.id, name: 'id' }
+      });
 
       expect(tree.find('User').instance().state).toEqual(state);
     });

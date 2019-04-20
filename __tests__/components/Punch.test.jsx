@@ -66,6 +66,25 @@ describe('Punch', () => {
 
       expect(spy.calledOnceWith(accountInformation)).toBeTruthy();
     });
+
+    test('should save response to local storage', async () => {
+      const punch = new PunchContainer();
+
+      const mock = {
+        error: false,
+        message: 'success',
+        response: { success: true }
+      };
+
+      fetch.mockResponseOnce(JSON.stringify(mock));
+
+      await punch.do(accountInformation);
+
+      expect(localStorage.setItem).toBeCalledWith(
+        'last_response',
+        JSON.stringify(mock),
+        );
+    });
   });
 
   describe('Container', () => {

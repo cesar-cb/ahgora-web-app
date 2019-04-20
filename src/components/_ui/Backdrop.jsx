@@ -9,6 +9,7 @@ export const Backdrop = styled.div`
   right: 0;
   top: 0;
   width: 100vw;
+  z-index: 999;
 `;
 
 export const BackdropCentered = styled(Backdrop)`

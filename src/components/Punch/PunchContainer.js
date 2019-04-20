@@ -34,6 +34,8 @@ class PunchContainer extends Container {
 
     const response = await this._fetch({ account, password, identity: id });
 
+    localStorage.setItem('last_response', JSON.stringify(response));
+
     this.setState({
       response
     });
