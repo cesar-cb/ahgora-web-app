@@ -8,7 +8,7 @@ export default function withContext(containers, WrappedComponent) {
         const mapping = containers
           .map(container => ({
             name: container.constructor.name,
-            value: container
+            value: container,
           }))
           .reduce((obj, item) => {
             obj[item.name] = item;

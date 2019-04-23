@@ -15,7 +15,7 @@ const Tab = styled.div`
 const Input = styled.input.attrs({
   id,
   type: 'checkbox',
-  name: 'tabs'
+  name: 'tabs',
 })`
   opacity: 0;
   position: absolute;
@@ -41,7 +41,7 @@ const Input = styled.input.attrs({
 `;
 
 const Label = styled.label.attrs({
-  htmlFor: id
+  htmlFor: id,
 })`
   background-color: #AEDCF0;
   color: #242F3F;

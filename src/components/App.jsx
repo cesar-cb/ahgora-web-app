@@ -14,7 +14,7 @@ import ResetInfo from '@/components/Punch/ResetInfo';
 
 class App extends Component {
   static propTypes = {
-    UserContainer: userContainerType
+    UserContainer: userContainerType,
   };
 
   componentWillMount() {

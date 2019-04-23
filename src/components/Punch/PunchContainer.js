@@ -1,4 +1,4 @@
-import { Container, } from 'unstated';
+import { Container } from 'unstated';
 
 class PunchContainer extends Container {
   state = {
@@ -23,16 +23,16 @@ class PunchContainer extends Container {
 
       return json;
     } catch (error) {
-      this.setState({ error, });
+      this.setState({ error });
     } finally {
-      this.setState({ loading: false, });
+      this.setState({ loading: false });
     }
   };
 
-  do = async ({ account, password, id, }) => {
-    this.setState({ loading: true, });
+  do = async ({ account, password, id }) => {
+    this.setState({ loading: true });
 
-    const response = await this._fetch({ account, password, identity: id, });
+    const response = await this._fetch({ account, password, identity: id });
 
     response && localStorage.setItem('last_response', JSON.stringify(response));
 

@@ -35,5 +35,6 @@
       }
     ],
     "react/require-default-props": false,
+    "comma-dangle": ["error", "always-multiline"]
   }
 }

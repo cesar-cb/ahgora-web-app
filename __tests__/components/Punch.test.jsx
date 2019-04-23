@@ -17,17 +17,17 @@ let tree;
 const accountInformation = {
   account: '456',
   password: '159',
-  id: '1231k24gb'
+  id: '1231k24gb',
 };
 
 const fullInformation = Object.assign({}, accountInformation, {
-  name: 'test user'
+  name: 'test user',
 });
 
 const response = {
   error: false,
   message: 'generic message',
-  response: 'generic response'
+  response: 'generic response',
 };
 
 beforeEach(async () => {
@@ -37,11 +37,11 @@ beforeEach(async () => {
   user = new UserContainer();
 
   await user.setState({
-    information: fullInformation
+    information: fullInformation,
   });
 
   await punch.setState({
-    response
+    response,
   });
 
   tree = mount(
@@ -73,7 +73,7 @@ describe('Punch', () => {
       const mock = {
         error: false,
         message: 'success',
-        response: { success: true }
+        response: { success: true },
       };
 
       fetch.mockResponseOnce(JSON.stringify(mock));
@@ -102,7 +102,7 @@ describe('Punch', () => {
       const mock = {
         error: false,
         message: 'success',
-        response: { success: true }
+        response: { success: true },
       };
 
       fetch.mockResponseOnce(JSON.stringify(mock));

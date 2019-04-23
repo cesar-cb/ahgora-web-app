@@ -11,7 +11,7 @@ const Response = ({ response, ...props }) => (
 );
 
 Response.propTypes = {
-  response: punchResponse
+  response: punchResponse,
 };
 
 export default Response;
