@@ -10,6 +10,7 @@ import Main from '@/components/_ui/Main';
 
 import User from '@/components/User/User';
 import Punch from '@/components/Punch/Punch';
+import ResetInfo from '@/components/Punch/ResetInfo';
 
 class App extends Component {
   static propTypes = {
@@ -28,12 +29,19 @@ class App extends Component {
     const { information } = UserContainer.value.state;
 
     return (
-      <Main>
-        <Container>
-          {information && <Punch />}
-          {!information && <User />}
-        </Container>
-      </Main>
+      <div>
+        <Main>
+          <ResetInfo />
+
+          <Container
+            center
+            fullPage
+          >
+            {information && <Punch />}
+            {!information && <User />}
+          </Container>
+        </Main>
+      </div>
     );
   }
 }

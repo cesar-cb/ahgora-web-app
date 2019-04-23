@@ -1,10 +1,10 @@
-import { Container } from 'unstated';
+import { Container, } from 'unstated';
 
 class PunchContainer extends Container {
   state = {
     response: null,
     loading: false,
-    error: null
+    error: null,
   };
 
   _fetch = async data => {
@@ -12,9 +12,9 @@ class PunchContainer extends Container {
       const config = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json; charset=utf-8'
+          'Content-Type': 'application/json; charset=utf-8',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       };
 
       const response = await fetch(`${process.env.API_URL}/api/punch`, config);
@@ -23,21 +23,21 @@ class PunchContainer extends Container {
 
       return json;
     } catch (error) {
-      this.setState({ error });
+      this.setState({ error, });
     } finally {
-      this.setState({ loading: false });
+      this.setState({ loading: false, });
     }
   };
 
-  do = async ({ account, password, id }) => {
-    this.setState({ loading: true });
+  do = async ({ account, password, id, }) => {
+    this.setState({ loading: true, });
 
-    const response = await this._fetch({ account, password, identity: id });
+    const response = await this._fetch({ account, password, identity: id, });
 
-    localStorage.setItem('last_response', JSON.stringify(response));
+    response && localStorage.setItem('last_response', JSON.stringify(response));
 
     this.setState({
-      response
+      response,
     });
   };
 }
