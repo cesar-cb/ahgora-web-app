@@ -31,8 +31,6 @@ class App extends Component {
     return (
       <div>
         <Main>
-          <ResetInfo />
-
           <Container
             center
             fullPage
@@ -40,6 +38,8 @@ class App extends Component {
             {information && <Punch />}
             {!information && <User />}
           </Container>
+
+          <ResetInfo />
         </Main>
       </div>
     );

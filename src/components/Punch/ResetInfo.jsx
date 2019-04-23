@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   background-color: #242F3F;
   display: flex;
   justify-content: flex-end;
-  padding: 0.8em;
+  padding: 0.8em 0;
 `;
 
 const ResetInfo = () => (

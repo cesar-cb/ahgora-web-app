@@ -8,7 +8,7 @@ const Container = styled.div`
   margin: 0 auto;
   max-width: 800px;
   width: 100%;
-  ${({ fullPage }) => fullPage && 'height: calc(100vh - 66px);'}
+  ${({ fullPage }) => fullPage && 'min-height: calc(100vh - 66px);'}
 `;
 
 export default Container;
