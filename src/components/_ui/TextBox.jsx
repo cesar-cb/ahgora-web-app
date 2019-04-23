@@ -12,7 +12,7 @@ const TextBox = ({ label, ...props }) => (
 );
 
 TextBox.propTypes = {
-  label: PropTypes.string
+  label: PropTypes.string,
 };
 
 export default TextBox;

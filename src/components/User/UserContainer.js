@@ -3,7 +3,7 @@ import { Container } from 'unstated';
 class UserContainer extends Container {
   state = {
     information: null,
-    error: false
+    error: false,
   };
 
   initInformation = () => {
@@ -18,8 +18,8 @@ class UserContainer extends Container {
           name,
           account,
           password,
-          id
-        }
+          id,
+        },
       });
     }
   };
@@ -36,8 +36,8 @@ class UserContainer extends Container {
           name,
           account,
           password,
-          id
-        }
+          id,
+        },
       });
     } catch (error) {
       this.setState({ error: error });
@@ -49,9 +49,10 @@ class UserContainer extends Container {
     localStorage.removeItem('account');
     localStorage.removeItem('password');
     localStorage.removeItem('id');
+    localStorage.removeItem('last_response');
 
     this.setState({
-      information: null
+      information: null,
     });
   };
 }

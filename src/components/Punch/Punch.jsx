@@ -1,10 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Subscribe } from 'unstated';
 import UserContainer from '@/components/User/UserContainer';
 import PunchContainer from '@/components/Punch/PunchContainer';
 
 import Response from '@/components/Punch/Response';
-import ResetInfo from '@/components/Punch/ResetInfo';
 
 import Button from '@/components/_ui/Button';
 import Loader from '@/components/_ui/Loader';
@@ -29,8 +28,6 @@ const Punch = () => (
       return (
         <Container>
           {loading && <Loader />}
-
-          <ResetInfo />
 
           <h1 id="hello" style={{ textAlign: 'center', width: '100%' }}>
             Olá

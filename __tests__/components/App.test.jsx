@@ -11,7 +11,7 @@ const information = {
   name: 'test user',
   account: '123',
   password: '@b$c',
-  id: 'sd4e9wd512'
+  id: 'sd4e9wd512',
 };
 
 describe('App', () => {

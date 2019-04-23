@@ -13,7 +13,7 @@ const state = {
   name: 'test user',
   account: '123',
   password: '@b$c',
-  id: 'sd4e9wd512'
+  id: 'sd4e9wd512',
 };
 
 beforeEach(() => {
@@ -32,16 +32,16 @@ describe('User', () => {
   describe('Component', () => {
     test('should save correct information', () => {
       tree.find('input#name').simulate('input', {
-        target: { value: state.name, name: 'name' }
+        target: { value: state.name, name: 'name' },
       });
       tree.find('input#account').simulate('input', {
-        target: { value: state.account, name: 'account' }
+        target: { value: state.account, name: 'account' },
       });
       tree.find('input#password').simulate('input', {
-        target: { value: state.password, name: 'password' }
+        target: { value: state.password, name: 'password' },
       });
       tree.find('input#id').simulate('input', {
-        target: { value: state.id, name: 'id' }
+        target: { value: state.id, name: 'id' },
       });
 
       expect(tree.find('User').instance().state).toEqual(state);
@@ -88,10 +88,11 @@ describe('User', () => {
     test('should call localstorage.removeItem', () => {
       user.resetInformation();
 
+      expect(localStorage.removeItem).toBeCalledWith('id');
       expect(localStorage.removeItem).toBeCalledWith('name');
       expect(localStorage.removeItem).toBeCalledWith('account');
       expect(localStorage.removeItem).toBeCalledWith('password');
-      expect(localStorage.removeItem).toBeCalledWith('id');
+      expect(localStorage.removeItem).toBeCalledWith('last_response');
     });
 
     test('should save information on state', async () => {
