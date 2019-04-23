@@ -26,7 +26,6 @@
         "devDependencies": true
       }
     ],
-    "no-unused-vars": 0,
     "max-len": [
       1,
       120,
@@ -35,6 +34,6 @@
         "ignoreComments": true
       }
     ],
-    "react/require-default-props": false
+    "react/require-default-props": false,
   }
 }
