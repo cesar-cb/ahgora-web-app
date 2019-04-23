@@ -49,6 +49,7 @@ class UserContainer extends Container {
     localStorage.removeItem('account');
     localStorage.removeItem('password');
     localStorage.removeItem('id');
+    localStorage.removeItem('last_response');
 
     this.setState({
       information: null,

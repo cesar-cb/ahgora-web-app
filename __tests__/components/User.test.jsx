@@ -88,10 +88,11 @@ describe('User', () => {
     test('should call localstorage.removeItem', () => {
       user.resetInformation();
 
+      expect(localStorage.removeItem).toBeCalledWith('id');
       expect(localStorage.removeItem).toBeCalledWith('name');
       expect(localStorage.removeItem).toBeCalledWith('account');
       expect(localStorage.removeItem).toBeCalledWith('password');
-      expect(localStorage.removeItem).toBeCalledWith('id');
+      expect(localStorage.removeItem).toBeCalledWith('last_response');
     });
 
     test('should save information on state', async () => {
