@@ -70,7 +70,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-fetch-mock": "^1.6.6",
-    "jsdom": "^12.1.0",
+    "jsdom": "^16.5.0",
     "regenerator-runtime": "^0.12.1",
     "sinon": "^6.3.5",
     "start-server-and-test": "^1.7.4",
